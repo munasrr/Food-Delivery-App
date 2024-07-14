@@ -13,6 +13,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import path from 'path';
 import webhookRoutes from './routes/webhookRoutes.js';
+import colors from 'colors'
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -63,5 +64,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`.cyan);
 });
