@@ -1,5 +1,5 @@
 # 🍕 QuickBite
-**QuickBite** is a comprehensive food ordering and delivery platform developed as the final project for a university MERN Development course. This web application is designed to streamline the process of browsing, ordering, and delivering food, providing an intuitive interface and robust features for users.
+**QuickBite** is a comprehensive food ordering and delivery platform developed as the final project for React course. This web application is designed to streamline the process of browsing, ordering, and delivering food, providing an intuitive interface and robust features for users.
 
 ## Features 🚀
 
