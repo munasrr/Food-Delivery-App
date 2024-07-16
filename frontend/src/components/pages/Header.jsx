@@ -50,8 +50,8 @@ const Header = () => {
           to="/"
           className="flex items-center text-primary font-bold text-4xl dark:text-primary-dark"
         >
-          <Truck className="mr-2" size={42} /> {/* Adding the truck icon */}
-          Foodify
+          <Truck className="mr-2" size={42} />
+          QuickBite
         </Link>
         <div className="flex items-center gap-4">
           <nav className="hidden md:flex items-center gap-6 text-gray-700 font-semibold dark:text-text-dark">
