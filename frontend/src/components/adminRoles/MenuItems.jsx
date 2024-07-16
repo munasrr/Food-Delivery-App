@@ -27,6 +27,7 @@ const MenuItems = () => {
     name: "",
     description: "",
     price: "",
+    category: "",
     image: null,
   });
 
@@ -34,6 +35,7 @@ const MenuItems = () => {
     name: "",
     description: "",
     price: "",
+    category: "",
     image: null,
   });
 
@@ -55,6 +57,7 @@ const MenuItems = () => {
       name: food.name,
       description: food.description,
       price: food.price,
+      category: food.category,
       image: null,
     });
   };
@@ -74,6 +77,7 @@ const MenuItems = () => {
     formData.append("name", editFormData.name);
     formData.append("description", editFormData.description);
     formData.append("price", editFormData.price);
+    formData.append("category", editFormData.category);
     if (editFormData.image) {
       formData.append("image", editFormData.image);
     }
@@ -104,17 +108,21 @@ const MenuItems = () => {
     formData.append("name", newFoodFormData.name);
     formData.append("description", newFoodFormData.description);
     formData.append("price", newFoodFormData.price);
+    formData.append("category", newFoodFormData.category);
 
     if (newFoodFormData.image) {
       formData.append("image", newFoodFormData.image);
     }
 
     try {
-      await addFood(formData);
+      console.log("Submitting new food item:", formData); // Log FormData for debugging
+      const result = await addFood(formData);
+      console.log("Add food result:", result); // Log API response
       setNewFoodFormData({
         name: "",
         description: "",
         price: "",
+        category: "",
         image: null,
       });
       setIsAdding(false);
@@ -179,6 +187,7 @@ const MenuItems = () => {
             <th className="py-2 px-4">Name</th>
             <th className="py-2 px-4">Description</th>
             <th className="py-2 px-4">Price</th>
+            <th className="py-2 px-4">Category</th>
             <th className="py-2 px-4">Actions</th>
           </tr>
         </thead>
@@ -197,6 +206,7 @@ const MenuItems = () => {
               </td>
               <td className="py-2 px-4">{food.description}</td>
               <td className="py-2 px-4">${food.price}</td>
+              <td className="py-2 px-4">{food.category}</td>
               <td className="py-2 px-4">
                 <button
                   className=" bg-primary text-background px-4 m-2 py-2 rounded hover:bg-gray-400"
@@ -281,6 +291,17 @@ const MenuItems = () => {
                   onChange={handleAddChange}
                   required
                   placeholder="Price"
+                  className="w-full px-4 py-2 border bg-gray-100  rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="category"
+                  value={newFoodFormData.category}
+                  onChange={handleAddChange}
+                  required
+                  placeholder="Category"
                   className="w-full px-4 py-2 border bg-gray-100  rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
                 />
               </div>
