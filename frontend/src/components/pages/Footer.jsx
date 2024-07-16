@@ -6,27 +6,30 @@ import {
   FaLinkedin,
   FaGithub,
   FaEnvelope,
+  FaYoutube,
+  FaPinterest,
+  FaTiktok,
 } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-background text-text shadow-2xl py-8 dark:bg-background-dark mt-44 dark:text-text-dark">
+    <footer className="bg-background shadow-4xl border text-text py-12 mt-44">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         <div>
-          <h2 className="text-lg font-semibold mb-4">About Us</h2>
-          <p className="text-sm leading-relaxed">
+          <h2 className="text-2xl text-text font-semibold mb-4">About Us</h2>
+          <p className="text-base leading-relaxed">
             We are a team of passionate developers dedicated to building the
             best web and mobile experiences. Follow us on our social media
             channels to stay updated with our latest projects and updates.
           </p>
         </div>
         <div>
-          <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
-          <ul className="text-sm space-y-2">
+          <h2 className="text-2xl font-semibold mb-4">Quick Links</h2>
+          <ul className="text-base space-y-2">
             <li>
               <a
                 href="/about"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
+                className=" hover:text-primary transition-colors duration-300 "
               >
                 About
               </a>
@@ -34,7 +37,7 @@ const Footer = () => {
             <li>
               <a
                 href="/services"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
+                className=" hover:text-primary transition-colors duration-300 "
               >
                 Services
               </a>
@@ -42,7 +45,7 @@ const Footer = () => {
             <li>
               <a
                 href="/contact"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
+                className=" hover:text-primary transition-colors duration-300"
               >
                 Contact
               </a>
@@ -50,7 +53,7 @@ const Footer = () => {
             <li>
               <a
                 href="/blog"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
+                className=" hover:text-primary transition-colors duration-300 "
               >
                 Blog
               </a>
@@ -58,53 +61,77 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h2 className="text-lg font-semibold mb-4">Connect with Us</h2>
-          <div className="flex justify-center md:justify-start space-x-6 mb-4">
+          <h2 className="text-2xl font-semibold mb-4">Connect with Us</h2>
+          <div className="flex justify-center text-text md:justify-start space-x-6 mb-4">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaFacebookF size={20} />
+              <FaFacebookF size={24} />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaTwitter size={20} />
+              <FaTwitter size={24} />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaInstagram size={20} />
+              <FaInstagram size={24} />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaLinkedin size={20} />
+              <FaLinkedin size={24} />
             </a>
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaGithub size={20} />
+              <FaGithub size={24} />
             </a>
             <a
               href="mailto:info@example.com"
-              className="text-gray-300 hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
             >
-              <FaEnvelope size={20} />
+              <FaEnvelope size={24} />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+            >
+              <FaYoutube size={24} />
+            </a>
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+            >
+              <FaPinterest size={24} />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:text-primary transition-transform transform hover:scale-110 dark:hover:text-primary-dark"
+            >
+              <FaTiktok size={24} />
             </a>
           </div>
         </div>
@@ -114,14 +141,14 @@ const Footer = () => {
         <p className="text-sm">
           <a
             href="/privacy"
-            className="text-gray-400 hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
+            className=" hover:text-primary transition-colors duration-300 dark:hover:text-primary-dark"
           >
             Privacy Policy
           </a>{" "}
           |
           <a
             href="/terms"
-            className="text-gray-400 hover:text-primary transition-colors duration-300 ml-2 dark:hover:text-primary-dark"
+            className=" hover:text-primary transition-colors duration-300 ml-2 dark:hover:text-primary-dark"
           >
             Terms of Service
           </a>
