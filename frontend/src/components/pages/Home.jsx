@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import FeaturesSection from "./FeaturesSection";
 
 const Header = lazy(() => import("./Header"));
 const Hero = lazy(() => import("./Hero"));
@@ -19,8 +20,12 @@ const Home = () => {
           <HomePage />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
+          <FeaturesSection />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <Footer />
         </Suspense>
+       
       </div>
     </div>
   );
