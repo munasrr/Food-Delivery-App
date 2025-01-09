@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import FeaturesSection from "./FeaturesSection";
+import RestaurantSection from "./RestaturantSection";
+import Testimonials from "./Testimonials";
 
 const Header = lazy(() => import("./Header"));
 const Hero = lazy(() => import("./Hero"));
@@ -17,15 +19,17 @@ const Home = () => {
           <Hero />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
-          <HomePage />
+          <RestaurantSection />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <FeaturesSection />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
+          <Testimonials />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <Footer />
         </Suspense>
-       
       </div>
     </div>
   );
