@@ -117,7 +117,4 @@ npm start
   This project is licensed under the MIT License. See the LICENSE file for details.
 
 ### Thank you for checking out Food Delivery App! We hope you find it useful and enjoyable to use. 🍽️
-  ```css
-Make sure you copy and paste the entire content to avoid missing any part of the markdown syntax. This should ensure that the code blocks and other markdown elements render correctly in your README file.
-  ```
     
