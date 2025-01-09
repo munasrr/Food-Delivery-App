@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { RefreshCw } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -17,10 +18,9 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
-
+  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [updateProfile, { isLoading }] = useUpdateUserProfileMutation();
 
   useEffect(() => {
@@ -51,86 +51,145 @@ const ProfileScreen = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      <div className="container mx-auto px-4 py-6 mt-14 bg-background text-text">
-        <div className="bg-background shadow-2xl rounded-lg p-6 flex flex-col items-center">
-          <div className="w-full flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-1/3 flex flex-col items-center md:items-start">
-              {userInfo.profilePicture ? (
-                <img
-                  src={userInfo.profilePicture}
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full mb-4"
-                />
-              ) : (
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4" />
-              )}
+      <main className="container mx-auto px-4 py-8 mt-14">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Profile Header */}
+            <div className="bg-gradient-to-r from-primary to-red-600 px-6 py-8">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="relative">
+                  {userInfo.profilePicture ? (
+                    <img
+                      src={userInfo.profilePicture}
+                      alt="Profile"
+                      className="w-32 h-32 rounded-full border-4 border-white shadow-lg"
+                    />
+                  ) : (
+                    <div className="w-32 h-32 rounded-full bg-white/20 border-4 border-white shadow-lg flex items-center justify-center">
+                      <span className="text-4xl text-white">
+                        {name}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="text-center md:text-left">
+                  <h1 className="text-2xl font-bold text-white">{name}</h1>
+                  <p className="text-red-100">{email}</p>
+                  {userInfo.user.isAdmin && (
+                    <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-sm text-white">
+                      Admin
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="w-full md:w-2/3">
-              {userInfo.user.isAdmin && <AdminCredentials />}
+
+            {/* Admin Credentials */}
+            {userInfo.user.isAdmin && (
+              <div className="px-6 py-4 bg-gray-50 border-b">
+                <AdminCredentials />
+              </div>
+            )}
+
+            {/* Update Profile Form */}
+            <div className="p-6">
+              <h2 className="text-xl font-semibold text-gray-800 mb-6">
+                Update Profile
+              </h2>
+              <form onSubmit={submitHandler} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your name"
+                      value={name}
+                      autoComplete="username"
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="password"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      New Password
+                    </label>
+                    <input
+                      type="password"
+                      id="password"
+                      placeholder="Enter new password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="confirmPassword"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      placeholder="Confirm new password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white"
+                    />
+                  </div>
+                </div>
+
+                {isLoading ? (
+                  <div className="flex justify-center">
+                    <Loader />
+                  </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto px-8 py-3 mt-6 flex items-center justify-center gap-2 text-white bg-primary rounded-lg shadow-lg hover:bg-red-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                  >
+                    <RefreshCw className="w-5 h-5" />
+                    Update Profile
+                  </button>
+                )}
+              </form>
             </div>
-          </div>
-          <div className="w-full md:w-2/3 mt-6">
-            <h2 className="text-2xl font-bold text-center text-primary mb-6">
-              Update Profile
-            </h2>
-            <form onSubmit={submitHandler} className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Enter your name"
-                  value={name}
-                  autoComplete="username"
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 border bg-gray-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border bg-gray-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border bg-gray-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full px-4 py-3 border bg-gray-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400"
-                />
-              </div>
-              {isLoading && <Loader />}
-              <button
-                type="submit"
-                className="w-full py-3 mt-4 flex items-center justify-center gap-2 text-white bg-primary rounded-lg shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-red-400"
-              >
-                <RefreshCw className="w-5 h-5" />
-                Update
-              </button>
-            </form>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

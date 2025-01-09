@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from "react";
 import FeaturesSection from "./FeaturesSection";
 import RestaurantSection from "./RestaturantSection";
 import Testimonials from "./Testimonials";
+import DeliveryExperience from "./DeliveryExperience";
+import Order from "./Order";
 
 const Header = lazy(() => import("./Header"));
 const Hero = lazy(() => import("./Hero"));
@@ -26,6 +28,12 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <Testimonials />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <DeliveryExperience />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Order />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <Footer />

@@ -31,7 +31,10 @@ const Cart = () => {
     dispatch(removeItemFromCart({ id }));
   };
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   const handleCheckout = async (e) => {
     e.preventDefault();
@@ -66,10 +69,14 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto p-4 bg-background mt-24 text-text dark:bg-background-dark dark:text-text-dark">
-        <h1 className="text-4xl font-bold mb-4 text-primary text-center dark:text-primary-dark">Cart</h1>
+      <div className="container mx-auto p-4 bg-background mt-24 text-text ">
+        <h1 className="text-4xl font-bold mb-4 text-primary text-center dark:text-primary-dark">
+          Cart
+        </h1>
         {cartItems.length === 0 ? (
-          <p className="text-center text-lg text-gray-700 dark:text-gray-300">Your cart is empty 😔</p>
+          <p className="text-center text-lg text-gray-700 dark:text-gray-300">
+            Your cart is empty 😔
+          </p>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
@@ -86,13 +93,17 @@ const Cart = () => {
                     />
                     <div>
                       <h2 className="text-xl font-semibold">{item.name}</h2>
-                      <p className="text-gray-500 dark:text-gray-400">${item.price}</p>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        ${item.price}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <p className="text-gray-700 font-semibold dark:text-gray-300">${item.price * item.quantity}</p>
+                    <p className="text-gray-700 font-semibold dark:text-gray-300">
+                      ${item.price * item.quantity}
+                    </p>
                     <button
-                      className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors"
+                      className="bg-primary text-white px-3 py-2 rounded hover:bg-yellow-600 transition-colors"
                       onClick={() => removeFromCartHandler(item.id)}
                     >
                       <Trash2 className="w-5 h-5" />
@@ -101,14 +112,21 @@ const Cart = () => {
                 </div>
               ))}
               <div className="flex justify-end items-center text-lg font-semibold">
-                <p className="text-gray-700 dark:text-gray-300">Subtotal: ${subtotal}</p>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Subtotal: ${subtotal}
+                </p>
               </div>
             </div>
             <div className="bg-gray-100  p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
               <form onSubmit={handleCheckout} className="space-y-4">
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 dark:text-gray-700">Phone</label>
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 dark:text-gray-700"
+                  >
+                    Phone
+                  </label>
                   <input
                     type="text"
                     id="phone"
@@ -120,7 +138,12 @@ const Cart = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="street" className="block text-gray-700 dark:text-gray-700">Street address</label>
+                  <label
+                    htmlFor="street"
+                    className="block text-gray-700 dark:text-gray-700"
+                  >
+                    Street address
+                  </label>
                   <input
                     type="text"
                     id="street"
@@ -133,7 +156,12 @@ const Cart = () => {
                 </div>
                 <div className="flex space-x-4">
                   <div className="w-1/2">
-                    <label htmlFor="city" className="block text-gray-700 dark:text-gray-700">City</label>
+                    <label
+                      htmlFor="city"
+                      className="block text-gray-700 dark:text-gray-700"
+                    >
+                      City
+                    </label>
                     <input
                       type="text"
                       id="city"
@@ -145,7 +173,12 @@ const Cart = () => {
                     />
                   </div>
                   <div className="w-1/2">
-                    <label htmlFor="country" className="block text-gray-700 dark:text-gray-700">Country</label>
+                    <label
+                      htmlFor="country"
+                      className="block text-gray-700 dark:text-gray-700"
+                    >
+                      Country
+                    </label>
                     <input
                       type="text"
                       id="country"
@@ -159,7 +192,7 @@ const Cart = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors"
+                  className="w-full bg-primary text-white py-2 rounded-lg hover:bg-yellow-300 transition-colors"
                 >
                   Pay ${subtotal}
                 </button>

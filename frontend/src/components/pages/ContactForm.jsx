@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -61,7 +63,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-3 mt-4 text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-red-400"
+              className="w-full py-3 mt-4 text-white bg-primary rounded-lg shadow-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-red-400"
             >
               Send Message
             </button>
