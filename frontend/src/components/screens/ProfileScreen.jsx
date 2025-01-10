@@ -18,6 +18,7 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
+  console.log("userInfo", userInfo);
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,8 +26,8 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
-      setName(userInfo.name);
-      setEmail(userInfo.email);
+      setName(userInfo.user.name);
+      setEmail(userInfo.user.email);
     }
   }, [userInfo]);
 
@@ -53,30 +54,20 @@ const ProfileScreen = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="container mx-auto px-4 py-8 mt-14">
+      <main className="container mx-auto px-4 py-16 mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             {/* Profile Header */}
             <div className="bg-gradient-to-r from-primary to-red-600 px-6 py-8">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="relative">
-                  {userInfo.profilePicture ? (
-                    <img
-                      src={userInfo.profilePicture}
-                      alt="Profile"
-                      className="w-32 h-32 rounded-full border-4 border-white shadow-lg"
-                    />
-                  ) : (
-                    <div className="w-32 h-32 rounded-full bg-white/20 border-4 border-white shadow-lg flex items-center justify-center">
-                      <span className="text-4xl text-white">
-                        {name}
-                      </span>
-                    </div>
-                  )}
+                  <img
+                    src="/avatar.png"
+                    alt="Profile"
+                    className="w-32 h-32 rounded-full border-4 border-white shadow-lg"
+                  />
                 </div>
                 <div className="text-center md:text-left">
-                  <h1 className="text-2xl font-bold text-white">{name}</h1>
-                  <p className="text-red-100">{email}</p>
                   {userInfo.user.isAdmin && (
                     <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-sm text-white">
                       Admin
@@ -149,6 +140,7 @@ const ProfileScreen = () => {
                       placeholder="Enter new password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      autoSave="false"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white"
                     />
                   </div>
@@ -177,7 +169,7 @@ const ProfileScreen = () => {
                 ) : (
                   <button
                     type="submit"
-                    className="w-full md:w-auto px-8 py-3 mt-6 flex items-center justify-center gap-2 text-white bg-primary rounded-lg shadow-lg hover:bg-red-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    className="w-full md:w-auto px-8 py-3 mt-6 flex items-center justify-center gap-2 text-white bg-primary rounded-lg shadow-lg bg-primary/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                   >
                     <RefreshCw className="w-5 h-5" />
                     Update Profile

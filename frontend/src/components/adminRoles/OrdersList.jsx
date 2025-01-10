@@ -69,7 +69,7 @@ const OrdersList = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleBackToList}
-                className="mt-6 bg-primary dark:bg-primary-dark text-white text-xl font-semibold px-6 py-2 rounded hover:bg-red-600 "
+                className="mt-6 bg-primary dark:bg-primary-dark text-white text-xl font-semibold px-6 py-2 rounded hover:bg-primary/90 "
               >
                 Back to list
               </button>
@@ -85,7 +85,7 @@ const OrdersList = () => {
                 <div className="flex items-center space-x-4">
                   <div
                     className={`px-3 py-1 rounded-full text-white ${
-                      order.isPaid ? "bg-green-500" : "bg-red-500"
+                      order.isPaid ? "bg-green-500" : "bg-primary"
                     }`}
                   >
                     {order.isPaid ? "Paid" : "Not paid"}
@@ -100,7 +100,7 @@ const OrdersList = () => {
                 </div>
                 <button
                   onClick={() => handleShowOrder(order)}
-                  className="bg-primary dark:bg-primary-dark text-white px-4 py-2 rounded hover:bg-red-600 dark:hover:bg-red-800"
+                  className="bg-primary dark:bg-primary-dark text-white px-4 py-2 rounded hover:bg-primary/90 dark:bg-primary/90"
                 >
                   Show order
                 </button>

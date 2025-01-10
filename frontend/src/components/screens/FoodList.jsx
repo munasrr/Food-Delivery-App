@@ -10,6 +10,7 @@ import Header from "../../components/pages/Header";
 import Footer from "../../components/pages/Footer";
 import toast from "react-hot-toast";
 import { Pizza } from "lucide-react";
+import Wrapper from "../Wrapper";
 
 const FoodList = () => {
   const dispatch = useDispatch();
@@ -71,7 +72,7 @@ const FoodList = () => {
             </div>
             <div className="flex space-x-2 mt-4">
               <button
-                className="bg-primary text-background px-4 py-2 rounded hover:bg-primary dark:hover:bg-red-600"
+                className="bg-primary text-background px-4 py-2 rounded hover:bg-primary dark:bg-primary/90"
                 onClick={() => addToCartHandler(food)}
               >
                 Add to Cart ${food.price}
@@ -92,16 +93,20 @@ const FoodList = () => {
     <>
       <Header />
       <div className="container mx-auto p-4 bg-background text-text dark:bg-background-dark dark:text-text-dark">
-        <h1 className="text-4xl font-bold mb-4 mt-24 text-center text-primary dark:text-primary-dark flex items-center justify-center gap-2">
-          <Pizza size={32} />
-          Food List
-        </h1>
+        <Wrapper>
+          <h1 className="text-4xl font-bold mb-4 mt-24 text-center text-primary dark:text-primary-dark flex items-center justify-center gap-2">
+            <Pizza size={32} />
+            Food List
+          </h1>
 
-        {foods.length > 0 ? (
-          renderFoodAsCards(foods)
-        ) : (
-          <p className="text-gray-700 dark:text-gray-300">No food items available.</p>
-        )}
+          {foods.length > 0 ? (
+            renderFoodAsCards(foods)
+          ) : (
+            <p className="text-gray-700 dark:text-gray-300">
+              No food items available.
+            </p>
+          )}
+        </Wrapper>
       </div>
       <Footer />
     </>

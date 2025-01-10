@@ -93,7 +93,7 @@ const UsersList = () => {
                   {/* <td className="py-2 px-4">{user.role}</td> */}
                   <td className="py-2 px-4">
                     <button
-                      className="bg-primary text-white px-4 py-2 m-2 rounded hover:bg-red-600 dark:hover:bg-red-800"
+                      className="bg-primary text-white px-4 py-2 m-2 rounded bg-primary/90 dark:bg-primary/90"
                       onClick={() => handleDelete(user._id)}
                     >
                       Delete
@@ -149,7 +149,7 @@ const UsersList = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 mt-4 text-white bg-primary rounded-lg shadow-lg hover:bg-red-600 dark:bg-primary-dark  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 "
+                  className="w-full py-3 mt-4 text-white bg-primary rounded-lg shadow-lg bg-primary/90 dark:bg-primary-dark  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 "
                 >
                   Update User
                 </button>

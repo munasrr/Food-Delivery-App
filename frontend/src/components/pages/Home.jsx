@@ -7,7 +7,6 @@ import Order from "./Order";
 
 const Header = lazy(() => import("./Header"));
 const Hero = lazy(() => import("./Hero"));
-const HomePage = lazy(() => import("./HomePage"));
 const Footer = lazy(() => import("./Footer"));
 
 const Home = () => {

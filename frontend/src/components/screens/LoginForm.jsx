@@ -76,9 +76,9 @@ const LoginForm = () => {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-center min-h-screen bg-background text-text dark:bg-background-dark dark:text-text-dark p-4">
+      <div className="flex items-center justify-center min-h-screen bg-background text-text dark:bg-background-dark dark:text-text-dark my-20">
         <div className="w-full max-w-md p-8 space-y-6 bg-background rounded-lg shadow-2xl">
-          <h2 className="text-3xl font-bold text-center text-red-600 dark:text-red-400 flex items-center justify-center gap-2">
+          <h2 className="text-3xl font-bold text-center text-primary  flex items-center justify-center gap-2">
             <LogIn size={28} />
             Login
           </h2>
@@ -116,7 +116,7 @@ const LoginForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-3 mt-4 flex items-center justify-center gap-2 text-white bg-red-500 rounded-lg shadow-lg hover:bg-red-600 dark:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-red-400"
+              className="w-full py-3 mt-4 flex items-center justify-center gap-2 text-white bg-primary rounded-lg shadow-lg bg-primary/90 dark:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-red-400"
             >
               <LogIn />
               Login
@@ -133,7 +133,7 @@ const LoginForm = () => {
             Don't have an account?{" "}
             <Link
               to="/register"
-              className="font-medium text-red-600 dark:text-red-400 hover:underline"
+              className="font-medium text-primary  hover:underline"
             >
               Register
             </Link>

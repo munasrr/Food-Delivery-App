@@ -20,7 +20,7 @@ const ContactForm = () => {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 p-4">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 py-20">
         <div className="w-full mt-24 max-w-lg p-8 space-y-6 bg-white rounded-lg shadow-xl">
           <h2 className="text-4xl font-bold text-center text-primary flex items-center justify-center gap-2">
             <Mail size={28} />

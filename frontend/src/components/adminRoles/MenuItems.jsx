@@ -160,7 +160,7 @@ const MenuItems = () => {
             </div>
             <div className="flex space-x-2 mt-4">
               <button
-                className=" bg-primary text-white  px-4 py-2 rounded hover:bg-red-600 "
+                className=" bg-primary text-white  px-4 py-2 rounded bg-primary/90 "
                 onClick={() => addToCartHandler(food)}
               >
                 Add to Cart
@@ -315,7 +315,7 @@ const MenuItems = () => {
               </div>
               <button
                 type="submit"
-                className="w-full py-3 mt-4 text-white bg-primary rounded-lg shadow-lg hover:bg-red-600   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 "
+                className="w-full py-3 mt-4 text-white bg-primary rounded-lg shadow-lg bg-primary/90   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 "
               >
                 Add Food
               </button>
