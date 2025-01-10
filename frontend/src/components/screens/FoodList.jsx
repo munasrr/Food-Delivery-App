@@ -62,7 +62,7 @@ const FoodList = () => {
               <img
                 src={food.image}
                 alt={food.name}
-                className="w-full h-62 object-cover rounded mb-4"
+                className="w-full h-48 object-cover pb-3 rounded-md"
               />
               <h2 className="text-xl font-semibold text-primary dark:text-primary-dark">
                 {food.name}

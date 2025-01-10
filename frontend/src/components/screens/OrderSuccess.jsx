@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Home, Truck, ThumbsUp } from "lucide-react";
 import Wrapper from "../Wrapper";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../../slices/cartReducer";
 
 const OrderSuccess = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { order } = location.state || {};
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, []);
 
   if (!order) {
     return (

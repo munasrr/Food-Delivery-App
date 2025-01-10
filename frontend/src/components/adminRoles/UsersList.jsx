@@ -64,7 +64,7 @@ const UsersList = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto p-4 mt-14">
+      <div className="container mx-auto p-4 mt-36 overflow-x-hidden">
         <h1 className="text-4xl font-bold mb-4 text-center text-primary dark:text-primary-dark">
           Users List
         </h1>

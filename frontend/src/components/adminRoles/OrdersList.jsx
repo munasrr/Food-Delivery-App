@@ -25,7 +25,7 @@ const OrdersList = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 mt-24 overflow-x-hidden">
         <h1 className="text-4xl font-bold mb-4 text-center mt-14 text-primary dark:text-primary-dark">
           Orders List
         </h1>
